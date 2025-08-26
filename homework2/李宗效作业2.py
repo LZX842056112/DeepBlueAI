@@ -9,7 +9,7 @@ print(f'month * minute: {month * minute}')
 
 # 给定字符串 s = "12a3a4AA5A"，求出'A'字符和'a'字符的数量差
 s = "12a3a4AA5A"
-print(s.count('A') - s.count('a'))
+print(abs(s.count('A') - s.count('a')))
 
 
 # 已知 lst = [1, 3, 2, 6, 1, 1, 41], 程序实现: 求lst中最后一个为1的元素的索引
@@ -38,10 +38,13 @@ print(f'程序输出:  {tuple(num_str)}')
 例如： 
 输入 agbcppdcdho    输出：其中有 a b c d g h o p 8种英文字母
 """
+# letter = input('输入：')
+# letter_list = list(set(letter))
+# letter_list.sort()
+# letter_str = str(letter_list)
+# letter_str = letter_str.strip('[').strip(']')
+# letter_str = letter_str.replace(',', '').replace('\'', '')
+
 letter = input('输入：')
-letter_list = list(set(letter))
-letter_list.sort()
-letter_str = str(letter_list)
-letter_str = letter_str.strip('[').strip(']')
-letter_str = letter_str.replace(',', '').replace('\'', '')
-print(f'输出：其中有 {letter_str} {len(letter_list)}种英文字母')
+letter_set = sorted(set(letter))
+print(f'输出：其中有 {" ".join(letter_set)} {len(letter_set)}种英文字母')
