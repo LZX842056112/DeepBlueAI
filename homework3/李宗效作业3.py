@@ -30,9 +30,15 @@ else:
 nums = input('请输入三个不同的整数, 输入时用空格隔开:')
 nums = nums.split(' ')
 a, b, c = int(nums[0]), int(nums[1]), int(nums[2])
-if a > b and a > c:
+if b < a > c:
     print(f'最大值为: {a}')
-elif b > a and b > c:
+elif b > c:
     print(f'最大值为: {b}')
 else:
     print(f'最大值为: {c}')
+
+if a < b:
+    a = b
+if a < c:
+    a = c
+print(f'最大值为: {a}')
