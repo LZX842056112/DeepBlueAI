@@ -13,7 +13,7 @@
 multiply = 1
 total = 0
 num_str = input('请输入一个正整数: ')
-if num_str.isdigit():
+if num_str.isdigit() and int(num_str):
     for i in num_str:
         num = int(i)
         multiply *= num
