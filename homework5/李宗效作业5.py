@@ -6,7 +6,8 @@
 
 
 def list_update(lst):
-    return [i if i % 2 else i ** 2 for i in lst]
+    # return [i if i % 2 else i ** 2 for i in lst]
+    return [i ** (2 - i % 2) for i in lst]
 
 
 numbers = [1, 3, 6, 5, 2, 9, 7, 8]
@@ -41,7 +42,8 @@ else:
 
 def armstrong_check(num_str):
     if num_str.isdigit() and int(num_str):
-        total = sum(map(lambda x: int(x) ** len(num_str), num_str))
+        # total = sum(map(lambda x: int(x) ** len(num_str), num_str))
+        total = sum(int(x) ** len(num_str) for x in num_str)
         if int(num_str) == total:
             return True
     return False
@@ -52,4 +54,3 @@ if armstrong_check(num_input):
     print(f'{num_input} 是阿姆斯特朗数')
 else:
     print(f'{num_input} 不是阿姆斯特朗数')
-
