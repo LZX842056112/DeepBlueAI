@@ -85,13 +85,13 @@ class ClassRoom:
             print(f'{stu.get_name()}已经在{self.get_name()}中，请勿重复添加!')
             return
 
-        self.get_students().append(stu)
         # 如果该学生在其它班则调班
         for cls in ClassRoom.classes:
-            if cls != self and stu in cls.get_students():
+            if stu in cls.get_students():
                 cls.remove_student(stu)
                 print(f'{stu.get_name()}之前在{cls.get_name()},现已调班!')
                 break
+        self.get_students().append(stu)
         print(f'{stu.get_name()}成功添加到{self.get_name()}!')
 
     # 移除学生: 将学生对象从指定班级的学生列表中移除, 如果该学生不在指定班级则无需移除。
@@ -105,16 +105,24 @@ class ClassRoom:
     # 获取指定班级的学生信息: 输出指定班级的所有学生信息
     @staticmethod
     def get_students_info(cls=None):
-        if cls:
-            cls.get_info()
-            for stu in cls.get_students():
+        cs = [cls]
+        if cls is None:
+            cs = ClassRoom.classes
+        for c in cs:
+            c.get_info()
+            for stu in c.get_students():
                 stu.get_info()
-        else:
-            # 如果没有指定班级, 则默认输出所有班级的所有学生信息。
-            for cls in ClassRoom.classes:
-                cls.get_info()
-                for stu in cls.get_students():
-                    stu.get_info()
+
+        # if cls:
+        #     cls.get_info()
+        #     for stu in cls.get_students():
+        #         stu.get_info()
+        # else:
+        #     # 如果没有指定班级, 则默认输出所有班级的所有学生信息。
+        #     for cls in ClassRoom.classes:
+        #         cls.get_info()
+        #         for stu in cls.get_students():
+        #             stu.get_info()
 
 
 # 测试 获取学生信息(get_info)
@@ -157,7 +165,7 @@ print(len(cl2.get_students()))  # 1
 print('*' * 40)
 
 # 测试 移除学生(remove_student)
-cl1.remove_student(stu3) # 从1班中移除王五!
+cl1.remove_student(stu3)  # 从1班中移除王五!
 print(len(cl1.get_students()))  # 2
 cl1.remove_student(stu1)  # 张三不在1班,无需移除!
 print(len(cl1.get_students()))  # 2
