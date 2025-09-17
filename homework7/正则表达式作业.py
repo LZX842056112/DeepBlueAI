@@ -50,5 +50,7 @@ print(re.findall(pattern, string))
 string = 'hello90abc 78sjh12.5'
 pattern = r'\d[\.\d]*'
 p = re.compile(pattern)
-print(p.findall(string))
+findall = p.findall(string)
+print(findall)
 print(re.findall(pattern, string))
+print(sum(float(i) for i in findall))
