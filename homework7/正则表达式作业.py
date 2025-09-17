@@ -4,10 +4,10 @@ import re
 匹配string中所有单词的开头字母
 """
 string = 'Then your voice calls me back like a wake up call'
-pattern = r'\b\S'
-p = re.compile(pattern, )
+pattern = r'\b[a-z]'
+p = re.compile(pattern, re.I)
 print(p.findall(string))
-print(re.findall(pattern, string))
+print(re.findall(pattern, string, re.I))
 
 """
 提取string中以m或t开头的单词, 忽略大小写
