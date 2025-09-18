@@ -11,18 +11,37 @@ indices（如 [i, j, k] 表示访问 nested_lst[i][j][k]），返回对
 输入：nested_lst = [1, [2, 3], [4, [5, 6]]], indices = [0, 1] → 输出：None（因 nested_lst[0] 是整数，不是列表）
 '''
 
+# def get_nested_element(nested_lst, indices):
+#     for i in range(len(indices)):
+#         if type(nested_lst) is int and len(indices) - 1 == i:
+#             return None
+#         index = indices[i]
+#         if index > len(nested_lst):
+#             return None
+#         nested_lst = nested_lst[index]
+#     return nested_lst
+#
+#
+# lst = [1, [2, 3], [4, [5, 6]]]
+# indie = [2, 1, 0, 1]
+# print(get_nested_element(lst, indie))
 
-def get_nested_element(nested_lst, indices):
-    for i in range(len(indices)):
-        if type(nested_lst) is int and len(indices) - 1 == i:
-            return None
-        index = indices[i]
-        if index > len(nested_lst):
-            return None
-        nested_lst = nested_lst[index]
-    return nested_lst
+'''
+斐波那契系数
+[0,1,1,2,3,5,8...]
+'''
+
+lst = [0, 1]
 
 
-lst = [1, [2, 3], [4, [5, 6]]]
-indie = [2, 1, 0, 1]
-print(get_nested_element(lst, indie))
+def func(num):
+    if num == 1:
+        return str([0])
+    if num == 2:
+        return str(lst)
+    for i in range(num - 2):
+        lst.append(lst[-1] + lst[-2])
+    return str(lst)
+
+
+print(func(10))

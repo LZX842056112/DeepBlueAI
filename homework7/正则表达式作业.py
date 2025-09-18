@@ -13,7 +13,7 @@ print(re.findall(pattern, string, re.I))
 提取string中以m或t开头的单词, 忽略大小写
 """
 string = 'This module provides regular expression matching operations similar to those found in Perl'
-pattern = r'\b[mt]'
+pattern = r'\b[mt][a-z]*\b'
 p = re.compile(pattern, re.I)
 print(p.findall(string))
 print(re.findall(pattern, string, re.I))
@@ -47,8 +47,10 @@ print(re.findall(pattern, string))
 比如:  string = 'hello90abc 78sjh12.5'
 结果:  180.5 (90 + 78 + 12.5)
 """
-string = 'hello90abc 78sjh12.5'
+string = 'hello90ab.5c 78sjh12.5.6.5'
 pattern = r'\d[\.\d]*'
+pattern = r'\d+\.\d+|\d+'
+pattern = r'\d+(?:\.\d+)?'
 p = re.compile(pattern)
 findall = p.findall(string)
 print(findall)
