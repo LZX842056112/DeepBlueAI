@@ -26,6 +26,7 @@ indices（如 [i, j, k] 表示访问 nested_lst[i][j][k]），返回对
 # indie = [2, 1, 0, 1]
 # print(get_nested_element(lst, indie))
 
+
 '''
 斐波那契系数
 [0,1,1,2,3,5,8...]
@@ -45,3 +46,28 @@ def func(num):
 
 
 print(func(10))
+
+
+def get_rabbits(n):
+    a = b = 1
+    for _ in range(n - 1):
+        a, b = b, a + b
+    return a
+
+
+for i in range(1, 11):
+    print(get_rabbits(i), end=' \t')
+
+print()
+
+
+def get_rabbits():
+    a = b = 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+
+g = get_rabbits()
+for _ in range(10):
+    print(next(g), end=' \t')
