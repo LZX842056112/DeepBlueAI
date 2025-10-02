@@ -26,6 +26,8 @@ indices（如 [i, j, k] 表示访问 nested_lst[i][j][k]），返回对
 # indie = [2, 1, 0, 1]
 # print(get_nested_element(lst, indie))
 
+# p14 用到这个
+a = int
 
 '''
 斐波那契系数

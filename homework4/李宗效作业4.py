@@ -40,6 +40,6 @@ for k, v in d.items():
         total += v
 print(f'键和值中所有数字类型的数据之和: {total}')
 
-
+# p14 用到这个
 a = int
 print(a)
