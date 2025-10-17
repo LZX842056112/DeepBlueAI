@@ -10,4 +10,4 @@ start = time.perf_counter()
 for i in range(1000000):
     fibnacci(20)
 end = time.perf_counter()
-print((end - start) * 1000000) # 1464381099.0
+print((end - start)) # 1464.381099
